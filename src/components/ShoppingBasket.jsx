@@ -65,15 +65,15 @@ export default function ShoppingBasket() {
       let totalCost = 0;
       let totalTaxes = 0;
 
-      const receiptDetails = cart.map((item, index) => {
-        const tax = calculateTax(item.price, item.type, item.category);
-        const itemCost = item.price + tax;
+      const receiptDetails = cart.map((val) => {
+        const tax = calculateTax(val.price, val.type, val.category);
+        const itemCost = val.price + tax;
         totalTaxes += tax;
         totalCost += itemCost;
 
-        return `1 ${item.type === "import" ? item.type + "ed" : null} ${
-          item.category
-        } - ${item.goods} - Rp ${itemCost.toFixed(2)}`;
+        return `1 ${val.type === "import" ? val.type + "ed" : null} - ${
+          val.goods
+        } - Rp ${itemCost.toFixed(2)}`;
       });
 
       const receipt = [
@@ -138,8 +138,8 @@ export default function ShoppingBasket() {
         <Text style={styles.cartTitle}>Cart:</Text>
         {cart.map((item, index) => (
           <Text key={index}>
-            1 {item.type === "import" ? item.type + "ed" : null} {item.category}{" "}
-            - {item.goods} - Rp {item.price}
+            1 {item.type === "import" ? item.type + "ed" : null} - {item.goods}{" "}
+            - Rp {item.price}
           </Text>
         ))}
       </ScrollView>
