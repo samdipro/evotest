@@ -138,8 +138,8 @@ export default function ShoppingBasket() {
         <Text style={styles.cartTitle}>Cart:</Text>
         {cart.map((item, index) => (
           <Text key={index}>
-            1 {item.type === "import" ? item.type + "ed" : null} - {item.goods}{" "}
-            - Rp {item.price}
+            1 {item.type === "import" ? item.type + "ed" + " - " : null}{" "}
+            {item.goods} - Rp {item.price}
           </Text>
         ))}
       </ScrollView>
