@@ -71,7 +71,7 @@ export default function ShoppingBasket() {
         totalTaxes += tax;
         totalCost += itemCost;
 
-        return `1 ${val.type === "import" ? val.type + "ed" : null} - ${
+        return `1 ${val.type === "import" ? val.type + "ed" : ""} - ${
           val.goods
         } - Rp ${itemCost.toFixed(2)}`;
       });
